@@ -2,14 +2,18 @@
 
 import subprocess
 import sys
+import TestFile
 
 TEST_NAME = "Ben"
 TEST_NAMES = ['Ben', 'Bob', 'Bill']
 
 if len(sys.argv) != 2:
-    print("Error: Please pass you solution script as a command line argument.")
+    print("Error: Please pass your solution script as a command line argument.")
 else:
-    # Part 1 - Test 1: No parameters can print hello world.
+    # Test file structure:
+    TestFile.testFile(sys.argv[1])
+
+    # Part 1 - Test 1: With no parameters prints "Hello world!:
     result = subprocess.check_output([sys.argv[1]])
     output = result.decode("utf-8")
     expected = "Hello world!"
