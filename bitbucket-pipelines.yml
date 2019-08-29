@@ -11,6 +11,8 @@ pipelines:
         caches:
           - pip
         script: # Modify the commands below to build your repository.
-          - testAll.py
+          - chmod +x chmodAll.sh
+          - ./chmodAll.sh
+          - ./testAll.py
         artifacts:
           - marks.csv
