@@ -11,7 +11,7 @@ def testFile(fileName):
     if not os.path.exists(fileName):
         return False, "FAIL: Script %s does not exist." % fileName
 
-    f = open(fileName)
+    f = open(fileName, encoding="utf-8")
     file_string = f.read()
     if len(testByRegex("((?<!\\s)^(#!/usr/bin/env python3)$)", file_string)) == 0:
         return False, "FAIL: File %s does not start with #!/usr/bin/env python3" % fileName
