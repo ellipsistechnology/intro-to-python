@@ -17,21 +17,21 @@ def test(script):
             return fileResult, fileMessage
 
         # Part 1 - Test 1: With no parameters prints "Hello world!:
-        result = subprocess.check_output(['python3', script])
+        result = subprocess.check_output(['python', script])
         output = result.decode("utf-8")
         expected = "Hello world!"
         if output.strip() != expected:
             return False, "Part 1 - Test 1 FAIL: expected '%s', got '%s'" % (expected, output)
 
         # Part 1 - Test 2: Prints one name:
-        result = subprocess.check_output(['python3', script, TEST_NAME])
+        result = subprocess.check_output(['python', script, TEST_NAME])
         output = result.decode("utf-8")
         expected = "Hello %s!" % TEST_NAME
         if output.strip() != expected:
             return False, "Part 1 - Test 2 FAIL: expected '%s', got '%s'" % (expected, output)
 
         # Part 1 - Test 3: Prints multiple names:
-        result = subprocess.check_output(['python3', script] + TEST_NAMES)
+        result = subprocess.check_output(['python', script] + TEST_NAMES)
         output = result.decode("utf-8")
         expected = "Hello %s!Hello %s!Hello %s!" % (TEST_NAMES[0], TEST_NAMES[1], TEST_NAMES[2])
         if output.strip().replace("\n", "").replace("\r", "") != expected:

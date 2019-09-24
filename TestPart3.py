@@ -15,7 +15,7 @@ def test(script):
             return fileResult, fileMessage
 
         # Part 3 - Test 1: Creates a file with the count of monkeys:
-        subprocess.check_output(['python3', script])
+        subprocess.check_output(['python', script])
         if not os.path.exists("monkeys.txt"):
             return False, "Part 2 - Test 1 FAIL: File named monkeys.txt not found."
         else:

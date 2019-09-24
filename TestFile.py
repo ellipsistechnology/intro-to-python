@@ -16,7 +16,7 @@ def testFile(fileName):
     if len(testByRegex("((?<!\\s)^(#!/usr/bin/env python3)$)", file_string)) == 0:
         return False, "FAIL: File %s does not start with #!/usr/bin/env python3" % fileName
 
-    if len(testByRegex("^[\\s[^!]]*#.*\\w.+$", file_string)) < 2:
+    if len(testByRegex("^#.*\\w.+$", file_string)) < 2:
         return False, "FAIL: File %s does not include enough comments" % fileName
 
     return True, "OK"
